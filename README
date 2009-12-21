@@ -1,0 +1,141 @@
+The AlertFeed project contains an AppEngine implementation of a crawl, index,
+and search backend for a specific class of online documents that represent
+alerts of some sort.  The design is roughly divided into two complementary
+parts, CapMirror and CapQuery.  This document describes features of these
+designs, some of which have not yet been implemented.
+
+CapMirror
+=========
+
+Objective
+---------
+To provide a crawl/index platform for CAP data in the App Engine environment.
+
+Overview
+--------
+CapMirror is a crawl/index pipeline for CAP data.  It builds a Datastore that
+will be the backend for CapQuery.
+
+Infrastructures
+---------------
+The entire design is executed in App Engine in Python.  It relies on the
+Datastore, cron, and taskqueue API's.
+
+Detailed Design
+---------------
+
++ Whitelist of URL's containing XML indices of CAP URL's.  Whitelist is
+  initially hardcoded, but can eventually be edited online via an admin
+  page. Stored as Feed models in Datastore.
+
++ Crawl workflow will be described as simple Model subclasses (Crawl and
+  CrawlShard) that are stored using the App Engine Datastore service.
+
++ A cron job will poke the server to advance the crawl workflow.  It performs
+  a small, fixed number of Datastore queries to determine whether to crawl
+  each feed in the whitelist, the state of any crawl in progress, and is
+  responsible for finishing the Crawl record when all work is complete.  It is
+  robust in the presence of timeouts because the crawl state is persistent.
+
++ Task queues are used to execute shards of work.  One queue ("crawlpush") is
+  responsible for duplicate elimination (so that a URL is only crawled once
+  per cycle, even if it appears in multiple feeds), and queuing tasks in the
+  second queue.  The second queue ("crawlworker") is responsible for fetching
+  and parsing URL's.
+
++ Two types of files can be handled: CAP files and CAP indices.  A CAP file is
+  stored as a CapAlert model in Datastore.  A CAP index is processed by
+  queuing each entry in the "crawlpush" queue, allow recursion.
+
++ A crawl status page can render the crawl workflow state in a human-readable
+  form.  Other admin screens can show past crawls and all indexed CAP data.
+  Any errors encountered are saved in the CrawlShard and CapAlert models.
+
++ The CAP semantics will be implemented, allowing alerts to be created,
+  modified, and expire/retire. (TBD)
+
++ We will purge data from the Datastore after some interval (e.g. one year).
+
++ Each alert will be updated atomically, but there will be no attempt to
+  coordinate the state of multiple alerts.  (TBD)
+
++ Indexing consists of storing indexable attributes (e.g. "category") and of
+  adding keys, e.g. geohash, to enable efficient querying by the front end.
+
+Code Location
+-------------
+cap_crawl.py (main crawl execution code)
+cap_mirror.py (administrative screens)
+cap_schema.py (Datastore schema)
+
+
+CapQuery
+========
+
+Objective
+---------
+To provide a scalable serving platform for CAP data as either KML files or CAP
+indices.
+
+Overview
+--------
+CapQuery is a query service that provides CAP data formatted as CAP indices
+(ATOM files containing embedded CAP alerts) or KML.  It relies on the App
+Engine Datastore that is populated by CapMirror.
+
+Infrastructures
+---------------
+The entire design is executed in App Engine in Python.  It relies on the
+Datastore API.
+
+Detailed Design
+---------------
+
++ User-facing service that can retrieve the KML (/cap2kml) and CAP index
+  (/cap2atom) versions of the alerts.
+
++ "Table of Contents" view that shows the feeds and some basic statistics,
+  e.g. number of alerts.  (TBD)
+
++ Search parameters include feed URL, category, geo bounding box (TBD), and
+  other indexed properties of the CapAlert model.  The query parameter
+  namespace is aligned with the CAP standard, using the XML element names in
+  the query string, e.g. "category" and "severity".
+
++ A flexible query API maps CGI parameters to indexed schema elements, and
+  allows for common (but not arbitrary) combinations of predicates.  (See
+  web_query.py)
+
++ If necessary, a query can be split into a Datastore GQL query and a
+  subsequent filtering of the Datastore query results.  Common, simple queries
+  are expected to be handled by the Datastore.
+
++ Serves a static (or one day a self-refreshing) KML that matches the search
+  criteria.  The search parameters are encoded in the URL that is used to
+  refresh.
+
++ Stable URL's for queries,
+  e.g. http://alert-feed.appspot.com/cap2atom?category=Geo.
+
++ Serves data only from the most recent crawl.  TBD: Historical queries,
+  including timeseries.
+
++ Original CAP data (XML) is stored in the Datastore (CapAlert.text).  It is
+  normalized at query time when inlined into the ATOM that forms a CAP index
+  (/cap2atom).
+
++ Both strict and non-conforming parsers are used.  TBD: Indicate to the user
+  non-conforming CAP, or allow filtering.
+
++ KML is generated at query time (/cap2kml).  This is expensive, but we would
+  like to offer customization, e.g. style sheets, to control how CAP maps to
+  KML.
+
++ *PROBLEM* The size of the Datastore query (measured as the number of models)
+  is unbounded with respect to the user's query specification.  Need to use
+  query sharding and precalculation (during the crawl) to mitigate.
+
+Code Location
+-------------
+cap_query.py
+web_query.py

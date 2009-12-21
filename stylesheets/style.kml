@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+
+    <!-- This Style makes the feature's label, line and poly invisible -->
+    <Style id="line-poly-invis">
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <LineStyle>
+        <color>00000000</color>
+      </LineStyle>
+      <PolyStyle>
+        <color>00000000</color>
+      </PolyStyle>
+    </Style>
+
+    <!-- This Style makes the feature's lines be 2 pixels wide and green -->
+    <Style id="line-green">
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <LineStyle>
+        <color>ff00ff00</color>
+        <width>2</width>
+      </LineStyle>
+    </Style>
+
+    <!--
+      This StyleMap makes the label/line/poly invisible until the user
+      rolls over the feature's icon.  At rollover the lines in the feature
+      are drawn green.
+    -->
+    <StyleMap id="hilite-line">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-poly-invis</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-green</styleUrl>
+      </Pair>
+    </StyleMap>
+
+    <!--
+      This StyleMap makes the label/line/poly invisible until the user
+      rolls over the feature's icon.  At rollover the lines in the feature
+      are drawn green and the polys are drawn transparent red.
+    -->
+    <StyleMap id="severe">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-poly-invis</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-green</styleUrl>
+        <Style>
+          <PolyStyle>
+            <color>cf0000ff</color>
+            <outline>1</outline>
+          </PolyStyle>
+        </Style>
+      </Pair>
+    </StyleMap>
+
+    <!--
+      This StyleMap makes the label/line/poly invisible until the user
+      rolls over the feature's icon.  At rollover the lines in the feature
+      are drawn white and the polys are drawn transparent white.
+    -->
+    <StyleMap id="unknown">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-poly-invis</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <Style>
+          <LineStyle>
+            <color>ffffffff</color>
+          </LineStyle>
+          <PolyStyle>
+            <color>1fffffff</color>
+            <outline>1</outline>
+          </PolyStyle>
+        </Style>
+      </Pair>
+    </StyleMap>
+    
+    <!--
+      These features are not shown when this file is referenced from a
+      <styleUrl> in another file.  These are here to test the StyleSelectors
+      in this file which is done by loading this file directly.
+    -->
+
+    <Placemark>
+      <name>severe</name>
+      <styleUrl>#severe</styleUrl>
+      <MultiGeometry>
+        <Point>
+          <coordinates>
+            0,0,0
+          </coordinates>
+        </Point>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -1,-1,0
+            1,-1,0
+            1,1,0
+            -1,1,0
+            -1,-1,0
+          </coordinates>
+        </LineString>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -1,-1,0
+                1,-1,0
+                1,1,0
+                -1,1,0
+                -1,-1,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+
+    <Placemark>
+      <name>unknown</name>
+      <styleUrl>#unknown</styleUrl>
+      <MultiGeometry>
+        <Point>
+          <coordinates>
+            1,1,0
+          </coordinates>
+        </Point>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            0,0,0
+            2,0,0
+            2,2,0
+            0,2,0
+            0,0,0
+          </coordinates>
+        </LineString>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                0,0,0
+                2,0,0
+                2,2,0
+                0,2,0
+                0,0,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+
+  </Document>
+</kml>

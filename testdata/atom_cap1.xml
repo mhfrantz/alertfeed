@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="http://earthquake.usgs.gov/eqcenter/catalogs/capstyle/cap_alert.xsl"?>
+<alert xmlns="http://www.incident.com/cap/1.0">
+<identifier>USGS-earthquakes-us2009ecba.Q.20090312T161007.029Z</identifier>
+<sender>http://earthquake.usgs.gov/recenteqsUS/contacts.htm#us</sender>
+<sent>2009-03-12T16:10:07+00:00</sent>
+<status>Actual</status>
+<msgType>Update</msgType>
+<scope>Public</scope>
+<references>USGS-earthquakes-us2009ecba.6.20090312T154431.587Z/http://earthquake.usgs.gov/recenteqsUS/contacts.htm#us</references>
+
+<info>
+<category>Geo</category>
+<event>Earthquake</event>
+<urgency>Past</urgency>
+<severity>Unknown</severity>
+<certainty>Likely</certainty>
+<senderName>U.S. Geological Survey</senderName>
+<headline>EQ 5.0 HONIARA, Solomon Islands - PRELIMINARY REPORT</headline>
+<description>An earthquake with magnitude 5.0 occurred near HONIARA, Solomon Islands at 15:13:23.86 UTC on Mar 12, 2009. (This event has been reviewed by a seismologist.)</description>
+
+<web>http://earthquake.usgs.gov/eqcenter/recenteqsww/Quakes/us2009ecba.php</web>
+<contact>http://earthquake.usgs.gov/recenteqsUS/contacts.htm#us</contact>
+<parameter>EventTime=2009-03-12T15:13:23+00:00</parameter>
+<parameter>EventIDKey=us2009ecba</parameter>
+<parameter>Version=Q</parameter>
+<parameter>Magnitude=5.0</parameter>
+<parameter>Depth=35.0 km (21.7 miles)</parameter>
+<parameter>HorizontalError=9.2 km</parameter>
+<parameter>NumStations=63</parameter>
+
+<parameter>NumPhases=63</parameter>
+<parameter>MinDistance=42.7 km</parameter>
+<parameter>RMSTimeError=0.94 seconds</parameter>
+<parameter>AzimuthalGap=123 degrees</parameter>
+<area>
+<areaDesc>24 miles (39 km) SSW of HONIARA, Solomon Islands; 93 miles (150 km) SW of Auki, Solomon Islands; 134 miles (215 km) SSE of Dadali, Solomon Islands; 862 miles (1387 km) E of PORT MORESBY, Papua New Guinea</areaDesc>
+<circle>-9.806,159.850 0.0</circle>
+</area>
+</info>
+</alert>

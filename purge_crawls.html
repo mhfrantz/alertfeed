@@ -1,0 +1,10 @@
+<!-- Input form to purge crawls. -->
+<form action="/purgecrawls" method="post">
+  <div>
+    <input type="submit" value="Purge Crawls">
+    Days to keep:
+    <input type="text" name="days_to_keep" value="{{purge_days_to_keep}}">
+    Batch size:
+    <input type="text" name="batch_size" value="{{purge_batch_size}}">
+  </div>
+</form>

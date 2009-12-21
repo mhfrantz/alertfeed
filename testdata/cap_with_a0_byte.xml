@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!-- This file (except for this comment) was retrieved from
+http://www.usgs.gov/alerts/cap/USGS-landslides.20071203T180530.  It contains a
+non-ASCII, non-UTF8 character just after the HTTP://WWW.WRH.NOAA.GOV/SEW URL
+in the instruction node. -->
+<?xml-stylesheet type="text/xsl"  href="http://www.usgs.gov/hazard_alert/alerts/cap_alert.xsl"?>
+
+<cap:alert xmlns:cap="http://www.incident.com/cap/1.0">
+  <identifier>USGS-landslides.20071203T180530</identifier>
+  <sender>baum@usgs.gov</sender>
+  <sent>20071203T180530.000Z</sent>
+  <status>Actual</status>
+  <msgType>Alert</msgType>
+  <scope>Public</scope>
+  <info>
+    <language>en-US</language>
+    <category>Geo</category>
+    <urgency>Expected</urgency>
+    <severity>Moderate</severity>
+    <certainty>Possible</certainty>
+    <headline>National Weather Service Issues Landslide Advisory for Western Washington</headline>
+    <description>...HEAVY RAINFALL WILL GIVE A RISK FOR LANDSLIDES TO WESTERN
+WASHINGTON THROUGH TONIGHT..
+
+HEAVY RAINS OF 3 TO 6 INCHES OVER THE PAST 24 HOURS HAVE SATURATED
+SOILS AROUND WESTERN WASHINGTON. HEAVY RAINFALL RATES OF 0.25 TO
+TO 0.50 INCHES PER HOUR WILL CONTINUE THROUGH THE MID AFTERNOON
+HOURS. THIS WILL PUT EXTRA PRESSURE ON SOIL STABILITY.
+
+INDICES DEVELOPED BY THE U.S.G.S. SHOW THAT LANDSLIDES ARE POSSIBLE
+DURING INTENSE RAINFALL OR WHEN RAINFALL AMOUNTS EXCEED ONE INCH IN
+24 HOURS. OBSERVED RAINFALLS HAVE ALREADY EXCEEDED THAT AMOUNT
+TODAY...INCLUDING THE SEATTLE AREA.
+
+WHILE THE U.S.G.S. RAINFALL THRESHOLDS APPLY TO THE SEATTLE AREA OF
+PUGET SOUND...MOST OF THE LOWLANDS OF WESTERN WASHINGTON ARE
+SUSCEPTIBLE TO LANDSLIDES DUE TO WET SOILS. AREAS MOST SUSCEPTIBLE
+TO LANDSLIDES UNDER THESE CONDITIONS ARE STEEP COASTAL BLUFFS AND
+OTHER STEEP HILLSIDES.</description>
+    <instruction>For more information, see the following web pages:
+HTTP://WWW.WRH.NOAA.GOV/SEW 
+http://landslides.usgs.gov/monitoring/seattle/rtd/plot.php
+http://landslides.usgs.gov/learning/prepare/
+http://landslides.usgs.gov/regional/seattle/</instruction>
+    <web>http://landslides.usgs.gov/monitoring/seattle/rtd/plot.php</web>
+    <contact>Rex Baum, Jonathan Godt, or Ed Harp</contact>
+    <area>
+      <areaDesc>Seattle, Washington and other communities around Puget Sound.</areaDesc>
+    </area>
+  </info>
+</cap:alert>

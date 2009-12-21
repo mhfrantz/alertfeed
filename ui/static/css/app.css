@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+@media screen {
+  html {
+    font-family: arial, helvetica, sans-serif;
+    font-size: 13px;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  strong { font-weight: bold; }
+  em { font-style: italic; }
+
+  .clearfix {
+    zoom: 1; /* IE fix */
+  }
+
+  .clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+
+  #container {
+    height: 100%;
+  }
+
+  #login-bar {
+    text-align: right;
+    border-bottom: 1px solid #eee;
+    padding: 5px 10px;
+  }
+
+  #header {
+    padding: 10px;
+  }
+
+  #header h1 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  #listview-toolbar {
+    background-color: #e8ecf9;
+  }
+
+  #map-toolbar, #listview-toolbar {
+    padding: 4px 8px;
+    font-weight: bold;
+  }
+
+  #alert-list li {
+    position: relative;
+    padding: 10px 10px 10px 47px;
+    min-height: 32px;
+    border-top: 1px solid #ccc;
+    cursor: pointer;
+  }
+
+  #alert-list li:last-child {
+    border-bottom: 1px solid #ccc;
+  }
+
+  #alert-list li img {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 32px;
+    height: 32px;
+  }
+
+  #alert-list li.selected {
+    background-color: #ffc;
+  }
+
+  #map-toolbar {
+    background: #d5ddf3 url(../images/map-shadow-left.png) repeat-y scroll top left;
+  }
+
+  .alert-bubble h2 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .alert-bubble h2,
+  .alert-bubble p {
+    margin: 8px 0;
+  }
+}

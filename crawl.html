@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+      <title>CapMirror Current Crawl Status</title>
+  </head>
+  <body>
+    {% if crawl %}
+      {% include "crawl_header.html" %}
+      <div><a href="/shards?crawl={{crawl.key|escape}}">Shards</a></div>
+    {% else %}
+      No feeds were crawled.
+    {% endif %}
+  </body>
+</html>

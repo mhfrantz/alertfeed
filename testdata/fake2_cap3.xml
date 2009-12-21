@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl"  href="http://www.usgs.gov/hazard_alert/alerts/cap_alert.xsl"?>
+
+<!-- For valid XML, the tag in the next line should be xmlns instead of
+xmlns:cap, but this files is being preserved as it was discovered on the USGS
+site. -->
+
+<cap:alert xmlns:cap="http://www.incident.com/cap/1.0">
+  <identifier>USGS-landslides.20081215T194706</identifier>
+  <sender>jegartner@usgs.gov</sender>
+  <sent>20081215T194706.000Z</sent>
+  <status>Actual</status>
+  <msgType>Alert</msgType>
+  <scope>Public</scope>
+  <info>
+    <language>en-US</language>
+    <category>Geo</category>
+    <event>flash flood warning</event>
+    <urgency>Immediate</urgency>
+    <severity>Severe</severity>
+    <certainty>Very Likely</certainty>
+    <senderName>Joseph Gartner</senderName>
+    <headline>Flash Flood Warning for the Santiago Fire in Orange County</headline>
+    <description>At 10:14 AM, December, 15, 2008, the National Weather Service in San Diego issued a Flash Flood Warning for the area burned by the Santiago Fire in Orange County California.  Areas potentially affected by this warning include the area burned by the 2007 Santiago Fire, Silverado Canyon, Fremont Canyon, the towns of Silverado and Modjeska, and the cities of Tustin Foothills, Tustin, and Mission Viejo.  Debris flows issuing from burned basins can impact roads travelling up Silverado Creek, Williams Canyon, Harding Canyon and Modjeska Creek.</description>
+    <instruction>A flash flood warning means that flooding is imminent or occurring.  If you are in the warning area, move to higher ground immediately.  Residents living along streams and creeks should take immediate precautions to protect life and property.  Do not attempt to cross swiftly flowing waters or waters of unknown depth by foot or by automobile.</instruction>
+    <web>http://landslides.usgs.gov/research/wildfire</web>
+    <contact>jegartner@usgs.gov</contact>
+    <area>
+      <areaDesc>the area burned by the Santiago Fire in Orange County, California</areaDesc>
+    </area>
+  </info>
+</cap:alert>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atom:feed xmlns:atom="http://www.w3.org/2005/Atom">
+  <atom:title>{{title|escape}}</atom:title>
+  {% for alert in alerts %}
+    {% for info in alert.model.info %}
+      <atom:entry>
+        <atom:title>{{info.headline|escape}}</atom:title>
+        <atom:summary>{{info.description|escape}}</atom:summary>
+        <atom:link href="{{alert.url|escape}}"/>
+        <atom:content type="text/xml">
+          {{alert.text}}
+        </atom:content>
+      </atom:entry>
+    {% endfor %}
+  {% endfor %}
+</atom:feed>

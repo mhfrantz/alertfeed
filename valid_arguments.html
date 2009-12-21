@@ -1,0 +1,21 @@
+<!-- valid_arguments.html -->
+<p>
+  Valid arguments are of the form [model.]attribute or model.attribute[.operator].
+</p>
+<b>Models, Attributes, and their supported Operators:</b>
+<ul>
+  {% for model in models %}
+    <li><code>{{model.name|escape}}</code>
+      <ul>
+      {% for attribute in model.attributes %}
+          <li><code>{{attribute.name|escape}}</code>:
+            {% for operator in attribute.operators.keys %}
+              {{operator|escape}}
+            {% endfor %}
+          </li>
+      {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+  </ul>
+</p>

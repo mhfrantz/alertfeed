@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Feed List Not Recognized</title>
+  </head>
+  <body>
+    <h1>Feed List Not Recognized</h1>
+    <code>{{unknown_feed_list|escape}}</code>
+    <p>
+      <b>Valid feed lists:</b>
+      <ul>
+      {% for feed_list in feed_lists %}
+        <li><code>{{feed_list|escape}}</code></li>
+      {% endfor %}
+      </ul>
+    </p>
+  </body>
+</html>

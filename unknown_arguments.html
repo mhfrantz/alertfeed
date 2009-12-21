@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>Unknown CAP Query Arguments</title>
+  </head>
+  <body>
+    <h1>Unknown CAP Query Arguments</h1>
+    {% for arg in unknown_arguments %}
+      <code>{{arg|escape}}</code>
+    {% endfor %}
+
+    {% include "valid_arguments.html" %}
+  </body>
+</html>

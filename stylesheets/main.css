@@ -1,0 +1,8 @@
+body {
+  font-family: Verdana, Helvetica, sans-serif;
+  background-color: #DDDDDD;
+}
+
+.error {
+  color: red;
+}

@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+      <title>CapMirror Crawls</title>
+  </head>
+  <body>
+
+    <form action="/clearcrawls" method="post">
+      <div><input type="submit" value="Clear Crawls"></div>
+    </form>
+    {% include "purge_crawls.html" %}
+    {% include "pager.html" %}
+
+{% if crawls_in_progress %}
+<h2>Crawls in Progress</h2>
+<table><!-- Crawls in Progress -->
+  <tr>
+    <th>Started</th>
+    <th>Feeds</th>
+    <th>Shards</th>
+  </tr>
+
+  {% for crawl in crawls_in_progress %}
+    <tr>
+      <td>{{crawl.started}}</td>
+      <td><!-- Feeds -->
+        <textarea rows=10 cols=80>{% for feed_url in crawl.feed_urls %}{{feed_url|escape}}
+{% endfor %}</textarea>
+      </td>
+      <td><a href="/shards?crawl={{crawl.key|escape}}">Shards</a></td>
+    </tr>
+  {% endfor %}
+</table>
+{% else %}
+  <b>No crawls in progress.</b><br>
+{% endif %}
+
+{% if crawls_finished %}
+<h2>Crawls Finished</h2>
+<table><!-- Crawls Finished -->
+  <tr>
+    <th>Started</th>
+    <th>Finished</th>
+    <th>Feeds</th>
+    <th>Shards</th>
+    <th>Caps</th>
+  </tr>
+
+  {% for crawl in crawls_finished %}
+    <tr>
+      <td>{{crawl.started}}</td>
+      <td>{{crawl.finished}}</td>
+      <td><!-- Feeds -->
+        <textarea rows=10 cols=80>{% for feed_url in crawl.feed_urls %}{{feed_url|escape}}
+{% endfor %}</textarea>
+      </td>
+      <td><a href="/shards?crawl={{crawl.key|escape}}">Shards</a></td>
+      <td><a href="/caps?crawl={{crawl.key|escape}}">Caps</a></td>
+    </tr>
+  {% endfor %}
+</table>
+{% else %}
+  <b>No crawls finished.</b><br>
+{% endif %}
+<b>
+  </body>
+</html>

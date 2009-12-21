@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Child of parent_feed.xml -->
+<feed>
+<entry><link href="testdata/child_cap1.xml" /></entry>
+</feed>

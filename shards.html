@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+      <title>CapMirror CrawlShards</title>
+  </head>
+  <body>
+    {% include "crawl_header.html" %}
+    {% include "pager.html" %}
+    <h2>Shards</h2>
+    {% if shards %}
+      <table>
+        <tr>
+          <th>Started</th>
+          <th>Finished</th>
+          <th>Feed</th>
+          <th>URL</th>
+          <th>Error</th>
+          <th>Parse Errors</th>
+          <th>Key</th>
+        </tr>
+        {% for shard in shards %}
+          <tr>
+            <td>{{shard.started}}</td>
+            <td>{{shard.finished}}</td>
+            <td>{{shard.feed.url|escape}}</td>
+            <td>{{shard.url|escape}}</td>
+            <td><!-- Error -->
+              {% if shard.error %}
+                <textarea rows=10 cols=80>{{shard.error|escape}}</textarea>
+              {% else %}
+                <i>none</i>
+              {% endif %}
+            </td>
+            <td><!-- Parse Errors -->
+              {% if shard.parse_errors %}
+                <textarea rows=10 cols=80>{% for error in shard.parse_errors %}{{error|escape}}
+---
+{% endfor %}</textarea>
+              {% else %}
+                <i>none</i>
+              {% endif %}
+            </td>
+            <td>{{shard.key}}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <i>none</i>
+    {% endif %}
+    {% include "pager.html" %}
+  </body>
+</html>

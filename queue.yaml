@@ -1,0 +1,9 @@
+queue:
+- name: crawlworker
+  rate: 10/s
+  bucket_size: 5
+
+- name: crawlpush
+  rate: 10/s
+  bucket_size: 5
+

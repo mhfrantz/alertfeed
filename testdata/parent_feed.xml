@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Index of child indices -->
+<feed>
+<entry><link href="testdata/child_feed1.xml" /></entry>
+<entry><link href="testdata/child_feed2.xml" /></entry>
+</feed>

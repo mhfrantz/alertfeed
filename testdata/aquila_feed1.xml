@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed>
+<entry><link href="testdata/aquila_cap5.xml" /></entry>
+<entry><link href="testdata/aquila_cap2.xml" /></entry>
+<entry><link href="testdata/aquila_cap3.xml" /></entry>
+</feed>

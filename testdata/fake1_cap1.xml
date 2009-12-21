@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.1">
+<identifier>identifier 1</identifier>
+<sender>sender 1</sender>
+<sent>2009-01-01T01:01:01-0100</sent>
+<status>Test</status>
+<msgType>Alert</msgType>
+<source>source 1</source>
+<scope>Private</scope>
+<restriction>restriction 1</restriction>
+<addresses>addresses 1</addresses>
+<code>code 1</code>
+<note>note 1</note>
+<references>references 1</references>
+<incidents>incidents 1</incidents>
+<info>
+  <language>language 1</language>
+  <category>Other</category>
+  <event>event 1</event>
+  <responseType>None</responseType>
+  <urgency>Unknown</urgency>
+  <severity>Unknown</severity>
+  <certainty>Unknown</certainty>
+  <audience>audience 1</audience>
+  <effective>2009-01-01T01:01:02-0100</effective>
+  <onset>2009-01-01T01:01:03-0100</onset>
+  <expires>2009-01-01T01:01:04-0100</expires>
+  <senderName>senderName 1</senderName>
+  <headline>headline 1</headline>
+  <description>description 1</description>
+  <instruction>instruction 1</instruction>
+  <web>web 1</web>
+  <contact>contact 1</contact>
+  <resource>
+    <resourceDesc>resourceDesc 1</resourceDesc>
+    <mimeType>mimeType 1</mimeType>
+    <size>42</size>
+    <uri>http://uri/1</uri>
+    <derefUri>derefUri 1</derefUri>
+    <digest>digest 1</digest>
+  </resource>
+  <area>
+    <areaDesc>areaDesc 1</areaDesc>
+    <polygon>polygon 1</polygon>
+    <circle>circle 1</circle>
+    <altitude>altitude 1</altitude>
+    <ceiling>ceiling 1</ceiling>
+  </area>
+</info>
+</alert>

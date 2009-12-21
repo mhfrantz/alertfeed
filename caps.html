@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  </head>
+  <body>
+    {% include "crawl_header.html" %}
+    {% include "pager.html" %}
+    <h2>Caps</h2>
+    <table border="1">
+      <tr>
+        <th>Feed</th>
+        <th>CAP URL</th>
+        <th>Text</th>
+        <th>Parse Errors</th>
+        <!-- Alert -->
+        <th>Identifier</th>
+        <th>Sender</th>
+        <th>Sent</th>
+        <th>Status</th>
+        <th>MsgType</th>
+        <th>Source</th>
+        <th>Scope</th>
+        <th>Restriction</th>
+        <th>Code</th>
+        <th>References</th>
+        <!-- Info -->
+        <th>Language</th>
+        <th>Category</th>
+        <th>ResponseType</th>
+        <th>Urgency</th>
+        <th>Severity</th>
+        <th>Certainty</th>
+        <th>Audience</th>
+        <th>Effective</th>
+        <th>Onset</th>
+        <th>Expires</th>
+        <th>SenderName</th>
+        <th>Web</th>
+        <th>Contact</th>
+        <!-- Resource -->
+        <th>ResourceDesc</th>
+        <th>MimeType</th>
+        <th>Size</th>
+        <th>URI</th>
+        <!-- Area -->
+        <th>Altitude</th>
+        <th>Ceiling</th>
+      </tr>
+      {% for cap in caps %}
+        <tr>
+          <td><a href="{{cap.feed.url}}">{{cap.feed.url}}</a></td>
+          <td><a href="{{cap.url}}">{{cap.url}}</a></td>
+          <td><textarea rows=10 columns=80>{{cap.text|escape}}</textarea></td>
+          <td>
+            {% if cap.parse_errors %}
+              <textarea rows=10 columns=80>{% for error in cap.parse_errors %}{{error|escape}}
+--
+{% endfor %}</textarea>
+            {% endif %}
+          </td>
+          <!-- Alert -->
+          <td>{{cap.identifier|escape}}</td>
+          <td>{{cap.sender|escape}}</td>
+          <td>{{cap.sent|escape}}</td>
+          <td>{{cap.status|escape}}</td>
+          <td>{{cap.msgType|escape}}</td>
+          <td>{{cap.source|escape}}</td>
+          <td>{{cap.scope|escape}}</td>
+          <td>{{cap.restriction|escape}}</td>
+          <td>{{cap.code|escape}}</td>
+          <td>{{cap.references|escape}}</td>
+          <!-- Info -->
+          <td>{{cap.language|escape}}</td>
+          <td>{{cap.category|escape}}</td>
+          <td>{{cap.responseType|escape}}</td>
+          <td>{{cap.urgency|escape}}</td>
+          <td>{{cap.severity|escape}}</td>
+          <td>{{cap.certainty|escape}}</td>
+          <td>{{cap.audience|escape}}</td>
+          <td>{{cap.effective|escape}}</td>
+          <td>{{cap.onset|escape}}</td>
+          <td>{{cap.expires|escape}}</td>
+          <td>{{cap.senderName|escape}}</td>
+          <td>{{cap.web|escape}}</td>
+          <td>{{cap.contact|escape}}</td>
+          <!-- Resource -->
+          <td>{{cap.resourceDesc|escape}}</td>
+          <td>{{cap.mimeType|escape}}</td>
+          <td>{{cap.size|escape}}</td>
+          <td>{{cap.uri|escape}}</td>
+          <!-- Area -->
+          <td>{{cap.altitude|escape}}</td>
+          <td>{{cap.ceiling|escape}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+    {% include "pager.html" %}
+  </body>
+</html>

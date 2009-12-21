@@ -1,0 +1,76 @@
+application: gongo-dev
+version: 23
+runtime: python
+api_version: 1
+
+handlers:
+- url: /static
+  static_dir: ui/static
+
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /
+  script: ui/handlers.py
+
+- url: /crawl
+  script: cap_crawl.py
+  login: admin
+
+- url: /crawlpush
+  script: cap_crawl.py
+  login: admin
+
+- url: /crawlworker
+  script: cap_crawl.py
+  login: admin
+
+- url: /crawls
+  script: cap_mirror.py
+  login: admin
+
+- url: /shards
+  script: cap_mirror.py
+  login: admin
+
+- url: /clearcrawls
+  script: cap_mirror.py
+  login: admin
+
+- url: /purgecrawls
+  script: cap_mirror.py
+  login: admin
+
+- url: /feeds
+  script: cap_mirror.py
+  login: admin
+
+- url: /resetfeeds
+  script: cap_mirror.py
+  login: admin
+
+- url: /clearfeeds
+  script: cap_mirror.py
+  login: admin
+
+- url: /savefeed
+  script: cap_mirror.py
+  login: admin
+
+- url: /clearcaps
+  script: cap_mirror.py
+  login: admin
+
+- url: /caps
+  script: cap_mirror.py
+  login: admin
+
+- url: /cap2kml
+  script: cap_query.py
+
+- url: /cap2atom
+  script: cap_query.py
+
+- url: /cap2dump
+  script: cap_query.py
+  login: admin

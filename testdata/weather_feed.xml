@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Index of test data from weather alerts -->
+<feed xmlns="http://www.w3.org/2005/Atom">
+<entry><link href="testdata/weather_alert_with_polygon.xml" /></entry>
+</feed>

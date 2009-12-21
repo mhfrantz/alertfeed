@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cap_query:dump xmlns:cap_query="/cap_query.dtd">
+  <cap_query:title>{{title|escape}}</cap_query:title>
+  <cap_query:alerts>
+    {% for alert in alerts %}
+      <cap_query:alert url="{{alert.url|escape}}">
+        {{alert.model}}
+      </cap_query:alert>
+    {% endfor %}
+  </cap_query:alerts>
+</cap_query:dump>

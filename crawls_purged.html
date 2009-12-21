@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+    <title>Crawls Purged</title>
+  </head>
+
+  <body>
+    <h1>{{crawls_purged}} Crawls Purged</h1>
+
+    <div>
+      {% if error %}
+        Interrupted: {{error|escape}}
+      {% else %}
+        Finished.
+      {% endif %}
+    </div>
+
+    <div>
+      <a href="/crawls">Crawls</a>
+    </div>
+    {% include "purge_crawls.html" %}
+  </body>
+</html>

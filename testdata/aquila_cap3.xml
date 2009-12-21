@@ -1,0 +1,64 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<alert xmlns = "urn:oasis:names:tc:emergency:cap:1.1">
+  <identifier>DIPVVF-20090409-1003-1</identifier>
+  <sender>dipartimento-vigilifuoco.it</sender>
+  <sent>2009-04-09T17:46:07+02:00</sent>
+  <status>Test</status>
+  <msgType>Update</msgType>
+  <source>Funzionario 1</source>
+  <scope>Private</scope>
+  <code>DIPVVF-20090409-1003</code>
+  <references>dipartimento-vigilifuoco.it,DIPVVF-20090409-1003-0,2009-04-09T17:43:07+02:00</references>
+  <info>
+    <category>Safety</category>
+    <event>Emergenza Protezione Civile</event>
+    <urgency>Unknown</urgency>
+    <severity>Unknown</severity>
+    <certainty>Observed</certainty>
+    <audience>original</audience>
+    <eventCode>
+      <valueName>DIPVVF</valueName>
+      <value>90</value>
+    </eventCode>
+    <eventCode>
+      <valueName>DIPVVF-SEC</valueName>
+      <value>3</value>
+    </eventCode>
+    <eventCode>
+      <valueName>TSO-ETYPE-CATEGORY</valueName>
+      <value>EQK(GND)</value>
+    </eventCode>
+    <eventCode>
+      <valueName>TSO-ETYPE-ACTOR</valueName>
+      <value>EMG(VEH)</value>
+    </eventCode>
+    <eventCode>
+      <valueName>TSO-ETYPE-ENV</valueName>
+      <value>ERTHQK(DIS)</value>
+    </eventCode>
+    <eventCode>
+      <valueName>TSO-ETYPE-LOCTYPE</valueName>
+      <value>NOR(ROAD)</value>
+    </eventCode>
+    <eventCode>
+      <valueName>TSO-RTYPE-CLASS-NS</valueName>
+      <value>CIVP(ORG)</value>
+    </eventCode>
+    <senderName>Dipartimento Vigili del Fuoco</senderName>
+    <headline>TEST 3</headline>
+    <description>Test 3 description</description>
+    <web>http://www.vigilfuoco.it/</web>
+    <parameter>
+      <valueName>INCAL</valueName>
+      <value>INCIDENT</value>
+    </parameter>
+    <parameter>
+      <valueName>dettaglio tipologia</valueName>
+      <value>Centro Operativo Misto (COM)</value>
+    </parameter>
+    <area>
+      <areaDesc>Cordaro, Albano Laziale RM, Italia</areaDesc>
+      <circle>41.7266998,12.6430998 0.01</circle>
+    </area>
+  </info>
+</alert>

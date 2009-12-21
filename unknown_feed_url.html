@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Feed URL Not Found</title>
+  </head>
+  <body>
+    <h1>Feed URL Not Found</h1>
+    <code>{{unknown_feed_url|escape}}</code>
+    <p>
+      <b>Valid feed URLs:</b>
+      <ul>
+      {% for feed_url in feed_urls %}
+        <li><code>{{feed_url|escape}}</code></li>
+      {% endfor %}
+      </ul>
+    </p>
+  </body>
+</html>

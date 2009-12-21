@@ -1,0 +1,9 @@
+<!-- Crawl header -->
+    <h2>Crawl</h2>
+    <div>Started: {{crawl.started}}</div>
+    <div>Finished: {{crawl.finished}}</div>
+    <div>Feeds:
+      <textarea rows=10 cols=80>{% for feed_url in crawl.feed_urls %}{{feed_url|escape}}
+{% endfor %}</textarea>
+    </div>
+    <div><a href="/crawls">Crawls</a></div>

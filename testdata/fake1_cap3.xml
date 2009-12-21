@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alert>
+<identifier>identifier 3</identifier>
+<sender>sender 3</sender>
+<sent>2009-03-03T03:03:01-0300</sent>
+<status>Test</status>
+<msgType>Alert</msgType>
+<source>source 3</source>
+<scope>Private</scope>
+<restriction>restriction 3</restriction>
+<addresses>addresses 3</addresses>
+<code>code 3</code>
+<note>note 3</note>
+<references>references 3</references>
+<incidents>incidents 3</incidents>
+<info>
+  <language>language 3</language>
+  <category>Other</category>
+  <event>event 3</event>
+  <responseType>None</responseType>
+  <urgency>Unknown</urgency>
+  <severity>Unknown</severity>
+  <certainty>Unknown</certainty>
+  <audience>audience 3</audience>
+  <effective>2009-03-03T03:03:02-0300</effective>
+  <onset>2009-03-03T03:03:03-0300</onset>
+  <expires>2009-03-03T03:03:04-0300</expires>
+  <senderName>senderName 3</senderName>
+  <headline>headline 3</headline>
+  <description>description 3</description>
+  <instruction>instruction 3</instruction>
+  <web>web 3</web>
+  <contact>contact 3</contact>
+  <resource>
+    <resourceDesc>resourceDesc 3</resourceDesc>
+    <mimeType>mimeType 3</mimeType>
+    <size>42</size>
+    <uri>http://uri/3</uri>
+    <derefUri>derefUri 3</derefUri>
+    <digest>digest 3</digest>
+  </resource>
+  <area>
+    <areaDesc>areaDesc 3</areaDesc>
+    <polygon>polygon 3</polygon>
+    <circle>circle 3</circle>
+    <altitude>altitude 3</altitude>
+    <ceiling>ceiling 3</ceiling>
+  </area>
+</info>
+</alert>

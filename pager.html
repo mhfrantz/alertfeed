@@ -1,0 +1,13 @@
+<!-- Pager control for a paged query.
+     Parameters from paged_query.PagedQuery -->
+<div id="pager">
+  {% ifnotequal prev offset %}
+    <a href="/{{base_url}}?limit={{limit}}&offset={{prev}}&{{pager_params}}">
+      Prev {{limit}}
+    </a>
+  {% endifnotequal %}
+  (Showing {{limit}} rows starting at {{offset}})
+  <a href="/{{base_url}}?limit={{limit}}&offset={{next}}&{{pager_params}}">
+    Next {{limit}}
+  </a>
+</div>

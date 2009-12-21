@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  </head>
+  <body>
+    {% if error_msg %}
+      <div class="error">{{error_msg|escape}}</div>
+    {% endif %}
+
+    {% include "pager.html" %}
+
+    <table>
+      <tr>
+        <th>ATOM/RSS Feed URL</th>
+        <th>Last crawled</th>
+        <th>Crawl this?</th>
+        <th>Root?</th>
+        <th>Crawl period (minutes)</th>
+        <th/>
+      </tr>
+
+      {% for feed in feeds %}
+        <tr>
+          <td>{{feed.url}}</td>
+          <td>
+            {% if feed.last_crawl %}
+              <input type="text" name="last_crawl"
+               value="{{feed.last_crawl.started}}" readonly>
+            {% endif %}
+          </td>
+          <form action="/savefeed" method="post">
+            <input type="hidden" name="key" value="{{feed.key}}">
+            <input type="hidden" name="limit" value="{{limit}}">
+            <input type="hidden" name="offset" value="{{offset}}">
+            <td>
+              <input type="checkbox" name="is_crawlable" value="Crawl?"
+              {% if feed.is_crawlable %}checked{% endif %}>
+            </td>
+            <td>
+              <input type="checkbox" name="is_root" value="Root?"
+              {% if feed.is_root %}checked{% endif %}>
+            </td>
+            <td>
+              <input type="text" name="crawl_period_in_minutes"
+              value="{{feed.crawl_period_in_minutes}}">
+            </td>
+            <td><input type="submit" value="Save"></td>
+          </form>
+        </tr>
+      {% endfor %}
+    </table>
+
+    <form action="/resetfeeds" method="post">
+      <div>
+        <select name="feed_list" size={{feed_list_size}}>
+          {% for feed_list in feed_lists %}
+            <option>{{feed_list|escape}}</option>
+          {% endfor %}
+        </select>
+        <input type="submit" value="Reset Feeds">
+      </div>
+    </form>
+    <form action="/clearfeeds" method="post">
+      <div>
+        <input type="submit" value="Clear Feeds">
+      </div>
+    </form>
+    <form action="/clearcaps" method="post">
+      <div>
+        <a href="/caps">Caps</a>
+        <input type="submit" value="Clear Caps">
+      </div>
+    </form>
+    <form action="/clearcrawls" method="post">
+      <div>
+        <a href="/crawls">Crawls</a>
+        <input type="submit" value="Clear Crawls">
+      </div>
+    </form>
+
+  </body>
+</html>

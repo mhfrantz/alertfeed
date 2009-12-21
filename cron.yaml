@@ -1,0 +1,8 @@
+cron:
+- description: Nudge the crawl
+  url: /crawl
+  schedule: every 1 minutes
+
+- description: Purge old crawls
+  url: /purgecrawls?batch_size=1&days_to_keep=365
+  schedule: every 1 minutes
